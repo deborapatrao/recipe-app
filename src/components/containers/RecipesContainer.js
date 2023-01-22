@@ -7,10 +7,16 @@ const RecipesContainer = () => {
     const [recipes, setRecipes] = useState([])
     const [ingredient, setIngredient] = useState(null)
 
+    const handleInputChange = ingredient => {
+        setIngredient(ingredient)
+    }
+
+    console.log('ingredient', ingredient)
+
     return(
         <Container>
             <Center px={4}>
-                <Form />
+                <Form onInputChange={handleInputChange}/>
             </Center>
         </Container>
     )

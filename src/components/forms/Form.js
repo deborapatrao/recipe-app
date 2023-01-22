@@ -1,9 +1,15 @@
-import { FormControl, HStack, Input, VStack } from "native-base"
+import { Ionicons } from "@expo/vector-icons"
+import { Button, FormControl, HStack, Input, VStack, Icon } from "native-base"
 import { useState } from "react"
 
-const Form = () =>{
+const Form = props =>{
+    const {onInputChange} = props
     const [formData, setFormData] = useState({})
     const [errors, setErrors] = useState({})
+
+    const onSubmit = () => {
+        console.log('form submitted')
+    }
 
     return(
         <VStack space={2} width='100%' py={5}>
@@ -16,7 +22,17 @@ const Form = () =>{
                     bg='gray.200'
                     px={3}
                     width='85%'
+                    InputLeftElement={
+                    <Icon size={5} ml={2} color='gray.400' as={<Ionicons name='ios-search'/>}/>}
+                    
+                    onChangeText={value => {
+                        onInputChange(value)
+                        setFormData({...formData, name: value})
+                    }}
                     />
+                    <Button onPress={onSubmit} startIcon={<Icon as={Ionicons} name='ios-search' />}>
+                        Search
+                    </Button>
                 </HStack>
             </FormControl>
         </VStack>
