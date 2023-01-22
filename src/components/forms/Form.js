@@ -3,12 +3,13 @@ import { Button, FormControl, HStack, Input, VStack, Icon } from "native-base"
 import { useState } from "react"
 
 const Form = props =>{
-    const {onInputChange} = props
+    const {fetchRecipes, onInputChange} = props
     const [formData, setFormData] = useState({})
     const [errors, setErrors] = useState({})
 
     const onSubmit = () => {
         console.log('form submitted')
+        // fetchRecipes()
     }
 
     return(
