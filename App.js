@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { NativeBaseProvider } from 'native-base';
 import { StyleSheet, View } from 'react-native';
+import RecipesContainer from './src/components/containers/RecipesContainer';
 import Header  from './src/components/layout/Header';
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
 
     <NativeBaseProvider>
       <Header />
+      <RecipesContainer />
       <StatusBar style="light" />
     </NativeBaseProvider>
   )
