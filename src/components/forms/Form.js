@@ -9,7 +9,7 @@ const Form = props =>{
 
     const onSubmit = () => {
         console.log('form submitted')
-        // fetchRecipes()
+        fetchRecipes()
     }
 
     return(

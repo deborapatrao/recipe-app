@@ -1,7 +1,7 @@
 import { FlatList } from "native-base"
 import RecipeCard from "../listItems/RecipeCard"
 
-const RecipeList = ({ recipes }) => {
+const RecipeList = ({ navigation, recipes }) => {
 
     return(
         <FlatList 
@@ -12,9 +12,10 @@ const RecipeList = ({ recipes }) => {
             label={item.recipe.label}
             source={item.recipe.source}
             uri={item.recipe.uri}
+            navigation={navigation}
             />
         )}
-        keyExtractor={item => item.recipe.url}
+        keyExtractor={item => item.recipe.uri}
         showsVerticalScrollIndicator={false}
         />
     )

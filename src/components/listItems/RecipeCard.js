@@ -1,4 +1,4 @@
-import { Box, Center, Heading, VStack, Image, Button, Divider } from "native-base"
+import { Box, Center, Heading, VStack, Image, Button, Divider, Text } from "native-base"
 
 const RecipeCard = props => {
     const { image, label, navigation, source, uri} = props
@@ -7,6 +7,7 @@ const RecipeCard = props => {
             <VStack space ={4} divider={<Divider />}>
                 <Center>
                     <Heading size='xs'>{label}</Heading>
+                    <Text>{source}</Text>
                 </Center>
             </VStack>
 
@@ -15,7 +16,13 @@ const RecipeCard = props => {
             </Box>
 
             <Box px={4} pb={4}>
-                <Button variant='ghost'>
+                <Button variant='ghost'
+                onPress={() => {
+                    navigation.navigate('Show', {
+                        label, 
+                        uri
+                    })
+                }}>
                     View
                 </Button>
             </Box>

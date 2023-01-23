@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet, View, Text } from 'react-native';
 import IndexScreen from "../screens/IndexScreen";
 import ShowScreen from "../screens/ShowScreen";
+import WebScreen from "../screens/WebScreen";
 
 const Stack = createNativeStackNavigator()
 
@@ -23,16 +23,20 @@ const AppStack = () => {
                         color: '#fff'
                     }
                 }}
-                ></Stack.Screen>
+                />
 
                 <Stack.Screen
                 name='Show'
                 component={ShowScreen}
-                options={() => ({
-                    title: 'some name'
-                })}>
+                options={({ route }) => ({
+                    title: route.params.label,
+                })}/>
 
-                </Stack.Screen>
+                <Stack.Screen
+                name='Web'
+                component={WebScreen}
+                
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )

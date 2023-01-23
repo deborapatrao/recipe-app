@@ -14,7 +14,6 @@ const App = () => {
       {/* <RecipesContainer /> */}
       <AppStack />
       <StatusBar style="light" />
-      {/* <Text>Test App.js</Text> */}
     </NativeBaseProvider>
   )
 }

@@ -1,12 +1,21 @@
-import { Box, Center, Text } from "native-base"
+import { Box, Button, Center, Heading, Text } from "native-base"
 
-const RecipeContainer = () => {
+const RecipeContainer = ({ navigation, route }) => {
+    const { label, uri } = route.params
     return(
-        <Box width='100%'>
-            <Center py={10}>
-                <Text>Some label</Text>
-            </Center>
-        </Box>
+        <>
+            <Box width='100%' backgroundColor='red'>
+                <Center py={10}>
+                    <Text>{label}</Text>
+                    <Button 
+                    onPress={() =>
+                    navigation.navigate('Web', {
+                        label, uri
+                    })}
+                    >View Online</Button>
+                </Center>
+            </Box>
+        </>
     )
 }
 
